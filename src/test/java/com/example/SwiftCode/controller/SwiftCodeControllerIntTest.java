@@ -2,6 +2,8 @@ package com.example.SwiftCode.controller;
 
 import com.example.SwiftCode.models.Headquarter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,21 @@ public class SwiftCodeControllerIntTest {
     private MockMvc mockMvc;
     @Autowired
     ObjectMapper objectMapper;
+    private Headquarter headquarter;
+
+    @BeforeEach
+    public void init(){
+        headquarter = new Headquarter("address",
+                "bankName",
+                "countryISO2",
+                "countryName",
+                true,
+                "swiftcodeXXX");
+    }
+    @AfterEach
+    public void tearDown(){
+        headquarter =null;
+    }
 
     @Test
     public void SwiftCodeController_getBySwiftCode_ReturnObjectWithSwiftCode() throws Exception{
@@ -44,12 +61,7 @@ public class SwiftCodeControllerIntTest {
 
     @Test
     public void SwiftCodeController_addNewSwiftCodeEntry_ShouldSaveOffice() throws Exception{
-        Headquarter headquarter = new Headquarter("address",
-                "bankName",
-                "countryISO2",
-                "countryName",
-                true,
-                "swiftcodeXXX");
+
         mockMvc
                 .perform(MockMvcRequestBuilders.post("/v1/swift-codes")
                         .content(objectMapper.writeValueAsString(headquarter))

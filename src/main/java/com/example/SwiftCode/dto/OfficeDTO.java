@@ -16,7 +16,7 @@ public class OfficeDTO {
     String countryISO2;
     @NotBlank(message = "The country name cannot be empty")
     String countryName;
-    @NotBlank(message = "Define whether the office is the headquarter")
+    @NotNull(message = "Define whether the office is the headquarter")
     @JsonProperty("isHeadquarter")
     boolean isHeadquarter;
     @NotBlank(message = "Swift Code cannot be empty")
