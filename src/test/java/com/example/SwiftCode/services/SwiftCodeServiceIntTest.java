@@ -51,14 +51,13 @@ public class SwiftCodeServiceIntTest {
                 "countryName",
                 true,
                 "swiftcodeXXX");
-        HeadquarterDTO foundHeadquarter = (HeadquarterDTO) swiftCodeService.findBySwiftCode("swiftcodeXXX");
-        if(foundHeadquarter != null){
-            swiftCodeService.deleteSwiftCodeData("swiftcodeXXX");
-        }
+
         Object result = swiftCodeService.setNewSwiftCodeOffice(officeDTO);
 
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isInstanceOf(Headquarter.class);
+
+        swiftCodeService.deleteSwiftCodeData("swift1234XXX");
     }
     @Test
     public void SwiftCodeService_deleteSwiftCodeData_ShouldDeleteHeadquarter() {

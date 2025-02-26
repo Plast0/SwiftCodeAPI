@@ -61,7 +61,7 @@ public class SwiftCodeControllerIntTest {
 
     @Test
     public void SwiftCodeController_addNewSwiftCodeEntry_ShouldSaveOffice() throws Exception{
-
+    try{
         mockMvc
                 .perform(MockMvcRequestBuilders.post("/v1/swift-codes")
                         .content(objectMapper.writeValueAsString(headquarter))
@@ -69,15 +69,28 @@ public class SwiftCodeControllerIntTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.message").value("Swift Code entry has been created"));
+
+    } finally {
+        mockMvc.perform(MockMvcRequestBuilders.delete("/v1/swift-codes/{swift-code}", headquarter.getSwiftCode()));
+    }
     }
 
     @Test
     public void SwiftCodeController_deleteSwiftCodeData_ReturnString() throws Exception {
         String swiftCode = "swiftcodeXXX";
+    try{
+        mockMvc
+                .perform(MockMvcRequestBuilders.post("/v1/swift-codes")
+                        .content(objectMapper.writeValueAsString(headquarter))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON));
+    } finally {
         mockMvc
                 .perform(MockMvcRequestBuilders.delete("/v1/swift-codes/{swift-code}", swiftCode))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Swift Code " + swiftCode + " has been deleted"));
+    }
+
     }
 
 }
