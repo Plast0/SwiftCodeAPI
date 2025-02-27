@@ -24,10 +24,6 @@ public class SwiftCodeController {
         this.swiftCodeService = swiftCodeService;
     }
 
-    @GetMapping
-    public List<Headquarter> getAll(){
-        return swiftCodeService.getAll();
-    }
     @GetMapping("/{swift-code}")
     public Object getBySwiftCode(@PathVariable("swift-code") String swift_Code){
         return swiftCodeService.findBySwiftCode(swift_Code);

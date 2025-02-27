@@ -29,16 +29,6 @@ public class SwiftCodeControllerIntTest {
     ObjectMapper objectMapper;
     private Headquarter headquarter;
 
-    /*@BeforeEach
-    public void init(){
-
-    }
-    @AfterEach
-    public void tearDown(){
-        headquarter =null;
-    }*/
-
-
     @Test
     public void SwiftCodeController_getBySwiftCode_ReturnObjectWithSwiftCode() throws Exception{
         mockMvc

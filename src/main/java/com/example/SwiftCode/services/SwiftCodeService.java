@@ -110,9 +110,7 @@ public class SwiftCodeService {
         return deleted;
 
     }
-    public List<Headquarter> getAll() {
-        return headquarterRepository.findAll();
-    }
+
     @Transactional
     public void saveDataFromList(List<Headquarter> headquarters, List<Branch> branches){
         for(Headquarter headquarter: headquarters){
