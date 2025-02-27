@@ -57,7 +57,7 @@ public class SwiftCodeServiceIntTest {
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isInstanceOf(Headquarter.class);
 
-        swiftCodeService.deleteSwiftCodeData("swift1234XXX");
+        swiftCodeService.deleteSwiftCodeData("swiftcodeXXX");
     }
     @Test
     public void SwiftCodeService_deleteSwiftCodeData_ShouldDeleteHeadquarter() {
