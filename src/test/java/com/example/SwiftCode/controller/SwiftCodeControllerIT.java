@@ -2,8 +2,6 @@ package com.example.SwiftCode.controller;
 
 import com.example.SwiftCode.models.Headquarter;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @ExtendWith(SpringExtension.class)
-public class SwiftCodeControllerIntTest {
+public class SwiftCodeControllerIT {
     @Autowired
     private MockMvc mockMvc;
     @Autowired

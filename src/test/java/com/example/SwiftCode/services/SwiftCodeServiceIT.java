@@ -16,13 +16,13 @@ import org.springframework.transaction.annotation.Transactional;
 @AutoConfigureMockMvc
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
 @Transactional
-public class SwiftCodeServiceIntTest {
+public class SwiftCodeServiceIT {
 
     @Autowired
     private SwiftCodeService swiftCodeService;
 
     @Autowired
-    public SwiftCodeServiceIntTest(SwiftCodeService swiftCodeService){
+    public SwiftCodeServiceIT(SwiftCodeService swiftCodeService){
         this.swiftCodeService = swiftCodeService;
     }
 
