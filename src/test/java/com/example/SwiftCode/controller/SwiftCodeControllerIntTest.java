@@ -29,19 +29,15 @@ public class SwiftCodeControllerIntTest {
     ObjectMapper objectMapper;
     private Headquarter headquarter;
 
-    @BeforeEach
+    /*@BeforeEach
     public void init(){
-        headquarter = new Headquarter("address",
-                "bankName",
-                "countryISO2",
-                "countryName",
-                true,
-                "swiftcodeXXX");
+
     }
     @AfterEach
     public void tearDown(){
         headquarter =null;
-    }
+    }*/
+
 
     @Test
     public void SwiftCodeController_getBySwiftCode_ReturnObjectWithSwiftCode() throws Exception{
@@ -61,6 +57,12 @@ public class SwiftCodeControllerIntTest {
 
     @Test
     public void SwiftCodeController_addNewSwiftCodeEntry_ShouldSaveOffice() throws Exception{
+        headquarter = new Headquarter("address",
+                "bankName",
+                "countryISO2",
+                "countryName",
+                true,
+                "swiftcodeXXX");
     try{
         mockMvc
                 .perform(MockMvcRequestBuilders.post("/v1/swift-codes")
@@ -77,7 +79,13 @@ public class SwiftCodeControllerIntTest {
 
     @Test
     public void SwiftCodeController_deleteSwiftCodeData_ReturnString() throws Exception {
-        String swiftCode = "swiftcodeXXX";
+        String swiftCode = "swiftc123XXX";
+        headquarter = new Headquarter("address",
+                "bankName",
+                "countryISO2",
+                "Pl",
+                true,
+                "swiftc123XXX");
     try{
         mockMvc
                 .perform(MockMvcRequestBuilders.post("/v1/swift-codes")
