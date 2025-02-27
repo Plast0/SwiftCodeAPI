@@ -1,4 +1,7 @@
 # SwiftCodeAPI
+
+This application extracts data from an Excel file and stores it in a relational database. It enables users to retrieve, add, and delete bank branches based on their SWIFT codes.
+
 ## Prerequisites
 Make sure you have the following installed before running the project:
 - [Java 21](https://jdk.java.net/21/)
@@ -44,10 +47,19 @@ mvn spring-boot:run
 
 ## Running Tests
 
-To run tests, use:
+### Unit Tests
+To run unit tests, use:
 
 ```sh
 mvn test
 ```
+
+### Integration Tests
+Integration tests can be run separately using:
+
+```sh
+mvn verify 
+```
+
 ## Author
 Piotr Barasiński
